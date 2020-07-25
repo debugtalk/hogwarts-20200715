@@ -11,7 +11,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         Config("testcase description")
         .variables(**{"host": "mubu.com", "memberId": "${gen_memberId()}"})
         .variables(phone="18613143458", password="moFrwx$!kz3RTRm@Q*aV")
-        .variables(title="demo123")
+        .variables(title="demo123", node1Text="abc", node2Text="def")
         .verify(False)
         .base_url("https://${host}/")
     )
@@ -790,7 +790,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                                         {
                                             "updated": {
                                                 "id": "$nodeId",
-                                                "text": "<span>1</span>",
+                                                "text": "<span>$node1Text</span>",
                                                 "modified": "${get_timestamp()}",
                                             },
                                             "original": {
@@ -877,7 +877,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                                         {
                                             "updated": {
                                                 "id": "$nodeId",
-                                                "text": "<span>2</span>",
+                                                "text": "<span>$node2Text</span>",
                                                 "modified": "${get_timestamp()}",
                                             },
                                             "original": {
