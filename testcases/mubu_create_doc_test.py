@@ -413,14 +413,16 @@ class TestCaseMubuCreateDoc(HttpRunner):
                 }
             )
             .with_data({"folderId": "0", "type": "0"})
+            .extract()
+            .with_jmespath("body.data.id", "docId")
             .validate()
             .assert_equal("status_code", 200)
             .assert_equal("body.code", 0)
             .assert_equal("body.msg", None)
         ),
         Step(
-            RunRequest("/doc2JfxJ94JSUc")
-            .get("https://mubu.com/doc2JfxJ94JSUc")
+            RunRequest("/doc$docId")
+            .get("https://mubu.com/doc$docId")
             .with_headers(
                 **{
                     "upgrade-insecure-requests": "1",
@@ -477,12 +479,12 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/doc2JfxJ94JSUc",
+                    "referer": "https://mubu.com/doc$docId",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
                 }
             )
-            .with_json({"docId": "2JfxJ94JSUc"})
+            .with_json({"docId": "$docId"})
             .validate()
             .assert_equal("status_code", 200)
             .assert_equal("body.code", 0)
@@ -504,12 +506,12 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/doc2JfxJ94JSUc",
+                    "referer": "https://mubu.com/doc$docId",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
                 }
             )
-            .with_json({"document_id": "2JfxJ94JSUc"})
+            .with_json({"document_id": "$docId"})
             .validate()
             .assert_equal("status_code", 200)
             .assert_equal("body.code", 0)
@@ -530,7 +532,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/doc2JfxJ94JSUc",
+                    "referer": "https://mubu.com/doc$docId",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
                 }
@@ -555,7 +557,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/doc2JfxJ94JSUc",
+                    "referer": "https://mubu.com/doc$docId",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
                 }
@@ -578,7 +580,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/doc2JfxJ94JSUc",
+                    "referer": "https://mubu.com/doc$docId",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
                 }
@@ -603,7 +605,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/doc2JfxJ94JSUc",
+                    "referer": "https://mubu.com/doc$docId",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
                 }
@@ -618,7 +620,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
             RunRequest("/v3/api/colla/members")
             .options("https://api2.mubu.com/v3/api/colla/members")
             .with_params(
-                **{"memberId": "2752571224732040", "documentId": "2JfxJ94JSUc"}
+                **{"memberId": "2752571224732040", "documentId": "$docId"}
             )
             .with_headers(
                 **{
@@ -629,7 +631,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "sec-fetch-mode": "cors",
                     "sec-fetch-site": "same-site",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/doc2JfxJ94JSUc",
+                    "referer": "https://mubu.com/doc$docId",
                     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
@@ -642,7 +644,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
             RunRequest("/v3/api/colla/members")
             .get("https://api2.mubu.com/v3/api/colla/members")
             .with_params(
-                **{"memberId": "2752571224732040", "documentId": "2JfxJ94JSUc"}
+                **{"memberId": "2752571224732040", "documentId": "$docId"}
             )
             .with_headers(
                 **{
@@ -656,7 +658,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/doc2JfxJ94JSUc",
+                    "referer": "https://mubu.com/doc${docId}",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
                 }
@@ -684,7 +686,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/doc2JfxJ94JSUc",
+                    "referer": "https://mubu.com/doc$docId",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
                 }
@@ -695,11 +697,11 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "messageType": "BROADCAST",
                     "reqId": 3,
                     "requestId": "MESSAGE:1449164:2752571224732040:3",
-                    "token": "2JfxJ94JSUc",
+                    "token": "$docId",
                     "data": {
                         "message": {
                             "type": "CHANGE",
-                            "documentId": "2JfxJ94JSUc",
+                            "documentId": "$docId",
                             "version": 0,
                             "content": [
                                 {"name": "nameChanged", "title": "d", "original": ""},
@@ -748,7 +750,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/doc2JfxJ94JSUc",
+                    "referer": "https://mubu.com/doc$docId",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
                 }
@@ -759,11 +761,11 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "messageType": "BROADCAST",
                     "reqId": 5,
                     "requestId": "MESSAGE:1449164:2752571224732040:5",
-                    "token": "2JfxJ94JSUc",
+                    "token": "$docId",
                     "data": {
                         "message": {
                             "type": "CHANGE",
-                            "documentId": "2JfxJ94JSUc",
+                            "documentId": "$docId",
                             "version": 1,
                             "content": [
                                 {
@@ -834,7 +836,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/doc2JfxJ94JSUc",
+                    "referer": "https://mubu.com/doc$docId",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
                 }
@@ -845,11 +847,11 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "messageType": "BROADCAST",
                     "reqId": 7,
                     "requestId": "MESSAGE:1449164:2752571224732040:7",
-                    "token": "2JfxJ94JSUc",
+                    "token": "$docId",
                     "data": {
                         "message": {
                             "type": "CHANGE",
-                            "documentId": "2JfxJ94JSUc",
+                            "documentId": "$docId",
                             "version": 2,
                             "content": [
                                 {
