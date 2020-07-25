@@ -186,6 +186,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
             .assert_equal("status_code", 200)
             .assert_equal("body.code", 0)
             .assert_equal("body.msg", None)
+            .assert_equal("body.data.next", "/list")
         ),
         Step(
             RunRequest("/list")
@@ -276,6 +277,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
             .assert_equal("status_code", 200)
             .assert_equal("body.code", 0)
             .assert_equal("body.msg", None)
+            .assert_equal("body.data.tip", True)
         ),
         Step(
             RunRequest("/api/list/get")
@@ -324,6 +326,9 @@ class TestCaseMubuCreateDoc(HttpRunner):
             .assert_equal("status_code", 200)
             .assert_equal("body.code", 0)
             .assert_equal("body.msg", None)
+            .assert_equal("body.data.folderId", "0")
+            .assert_length_greater_than("body.data.folders", 5)
+            .assert_equal("body.data.folders[0].name", "分享 & 培训")
         ),
         Step(
             RunRequest("/api/message/get_message_unread")
