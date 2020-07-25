@@ -10,6 +10,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
     config = (
         Config("testcase description")
         .variables(**{"host": "mubu.com"})
+        .variables(phone="18613143458", password="moFrwx$!kz3RTRm@Q*aV")
         .verify(False)
         .base_url("https://${host}/")
     )
@@ -179,11 +180,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                 }
             )
             .with_data(
-                {
-                    "phone": "18613143458",
-                    "password": "moFrwx$!kz3RTRm@Q*aV",
-                    "remember": "true",
-                }
+                {"phone": "$phone", "password": "$password", "remember": "true",}
             )
             .validate()
             .assert_equal("status_code", 200)
