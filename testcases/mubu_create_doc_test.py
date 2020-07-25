@@ -10,7 +10,15 @@ from testcases.mubu_login_test import TestCaseMubuLogin as MubuLogin
 
 class TestCaseMubuCreateDoc(HttpRunner):
     @pytest.mark.parametrize(
-        "param", Parameters({"title": ["demo1", "demo2"],}),
+        "param",
+        Parameters(
+            {
+                "title-node1Text-node2Text": [
+                    ["demo1", "1abc", "1def"],
+                    ["demo2", "2abc", "2def"],
+                ],
+            }
+        ),
     )
     def test_start(self, param):
         super().test_start(param)
