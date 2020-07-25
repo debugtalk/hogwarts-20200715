@@ -545,6 +545,8 @@ class TestCaseMubuCreateDoc(HttpRunner):
                 }
             )
             .with_data("")
+            .extract()
+            .with_jmespath("body.data.id", "userId")
             .validate()
             .assert_equal("status_code", 200)
             .assert_equal("body.code", 0)
@@ -683,7 +685,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "content-type": "application/json;charset=UTF-8",
                     "accept": "application/json, text/plain, */*",
                     "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMTQ0OTE2NCIsImV4cCI6MTU5ODI0OTQ0NCwiaWF0IjoxNTk1NjU3NDQ0fQ.ZoOUyXDJZCeDyTifv2Lb3R0tGkkLOE6-Hj2XFUCLtAl_qk2hc9-ly-Gyvh2PVw0lfxR2Jxj9DMaeRgOnO9akSw",
-                    "request-id": "MESSAGE:1449164:$memberId:3",
+                    "request-id": "MESSAGE:$userId:$memberId:3",
                     "x-request-id": "46c492c2-406e-46f4-9172-6fa1e7ab11c2",
                     "origin": "https://${host}",
                     "sec-fetch-site": "same-site",
@@ -699,7 +701,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "engineType": "MUBU",
                     "messageType": "BROADCAST",
                     "reqId": 3,
-                    "requestId": "MESSAGE:1449164:$memberId:3",
+                    "requestId": "MESSAGE:$userId:$memberId:3",
                     "token": "$docId",
                     "data": {
                         "message": {
@@ -747,7 +749,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "content-type": "application/json;charset=UTF-8",
                     "accept": "application/json, text/plain, */*",
                     "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMTQ0OTE2NCIsImV4cCI6MTU5ODI0OTQ0NCwiaWF0IjoxNTk1NjU3NDQ0fQ.ZoOUyXDJZCeDyTifv2Lb3R0tGkkLOE6-Hj2XFUCLtAl_qk2hc9-ly-Gyvh2PVw0lfxR2Jxj9DMaeRgOnO9akSw",
-                    "request-id": "MESSAGE:1449164:$memberId:5",
+                    "request-id": "MESSAGE:$userId:$memberId:5",
                     "x-request-id": "fe707a91-9450-4218-9812-f7f620253b45",
                     "origin": "https://${host}",
                     "sec-fetch-site": "same-site",
@@ -763,7 +765,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "engineType": "MUBU",
                     "messageType": "BROADCAST",
                     "reqId": 5,
-                    "requestId": "MESSAGE:1449164:$memberId:5",
+                    "requestId": "MESSAGE:$userId:$memberId:5",
                     "token": "$docId",
                     "data": {
                         "message": {
@@ -833,7 +835,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "content-type": "application/json;charset=UTF-8",
                     "accept": "application/json, text/plain, */*",
                     "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMTQ0OTE2NCIsImV4cCI6MTU5ODI0OTQ0NCwiaWF0IjoxNTk1NjU3NDQ0fQ.ZoOUyXDJZCeDyTifv2Lb3R0tGkkLOE6-Hj2XFUCLtAl_qk2hc9-ly-Gyvh2PVw0lfxR2Jxj9DMaeRgOnO9akSw",
-                    "request-id": "MESSAGE:1449164:$memberId:7",
+                    "request-id": "MESSAGE:$userId:$memberId:7",
                     "x-request-id": "84e03397-b068-4fb4-80db-479207257de2",
                     "origin": "https://${host}",
                     "sec-fetch-site": "same-site",
@@ -849,7 +851,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "engineType": "MUBU",
                     "messageType": "BROADCAST",
                     "reqId": 7,
-                    "requestId": "MESSAGE:1449164:$memberId:7",
+                    "requestId": "MESSAGE:$userId:$memberId:7",
                     "token": "$docId",
                     "data": {
                         "message": {
