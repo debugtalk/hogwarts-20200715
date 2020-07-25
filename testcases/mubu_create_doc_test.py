@@ -7,7 +7,12 @@ from httprunner import HttpRunner, Config, Step, RunRequest, RunTestCase
 
 class TestCaseMubuCreateDoc(HttpRunner):
 
-    config = Config("testcase description").verify(False).base_url("https://mubu.com/")
+    config = (
+        Config("testcase description")
+        .variables(**{"host": "mubu.com"})
+        .verify(False)
+        .base_url("https://${host}/")
+    )
 
     teststeps = [
         Step(
@@ -34,7 +39,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "Hm_lvt_4426cbb0486a79ea049b4ad52d81b504": "1594282707",
                     "data_unique_id": "c1e5cc1b-2b44-4347-bddb-7a0dd0f7b479",
                     "_gid": "GA1.2.1085584436.1595559677",
-                    "reg_entrance": "https%3A%2F%2Fmubu.com%2Flist",
+                    "reg_entrance": "https%3A%2F%2F${host}%2Flist",
                     "s_v_web_id": "verify_kczo59ky_FlxKIV7C_zhEr_4z2C_8BnV_9GRIK1h2TVip",
                     "language": "en-US",
                     "country": "US",
@@ -63,7 +68,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "sec-fetch-mode": "navigate",
                     "sec-fetch-user": "?1",
                     "sec-fetch-dest": "document",
-                    "referer": "https://mubu.com/",
+                    "referer": "https://${host}/",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
                 }
@@ -75,7 +80,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "Hm_lvt_4426cbb0486a79ea049b4ad52d81b504": "1594282707",
                     "data_unique_id": "c1e5cc1b-2b44-4347-bddb-7a0dd0f7b479",
                     "_gid": "GA1.2.1085584436.1595559677",
-                    "reg_entrance": "https%3A%2F%2Fmubu.com%2Flist",
+                    "reg_entrance": "https%3A%2F%2F${host}%2Flist",
                     "s_v_web_id": "verify_kczo59ky_FlxKIV7C_zhEr_4z2C_8BnV_9GRIK1h2TVip",
                     "language": "en-US",
                     "country": "US",
@@ -104,7 +109,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "sec-fetch-mode": "navigate",
                     "sec-fetch-user": "?1",
                     "sec-fetch-dest": "document",
-                    "referer": "https://mubu.com/login",
+                    "referer": "https://${host}/login",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
                 }
@@ -116,7 +121,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "Hm_lvt_4426cbb0486a79ea049b4ad52d81b504": "1594282707",
                     "data_unique_id": "c1e5cc1b-2b44-4347-bddb-7a0dd0f7b479",
                     "_gid": "GA1.2.1085584436.1595559677",
-                    "reg_entrance": "https%3A%2F%2Fmubu.com%2Flist",
+                    "reg_entrance": "https%3A%2F%2F${host}%2Flist",
                     "s_v_web_id": "verify_kczo59ky_FlxKIV7C_zhEr_4z2C_8BnV_9GRIK1h2TVip",
                     "language": "en-US",
                     "country": "US",
@@ -143,11 +148,11 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "x-requested-with": "XMLHttpRequest",
                     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36",
                     "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-site": "same-origin",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/login/password",
+                    "referer": "https://${host}/login/password",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
                 }
@@ -159,7 +164,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "Hm_lvt_4426cbb0486a79ea049b4ad52d81b504": "1594282707",
                     "data_unique_id": "c1e5cc1b-2b44-4347-bddb-7a0dd0f7b479",
                     "_gid": "GA1.2.1085584436.1595559677",
-                    "reg_entrance": "https%3A%2F%2Fmubu.com%2Flist",
+                    "reg_entrance": "https%3A%2F%2F${host}%2Flist",
                     "s_v_web_id": "verify_kczo59ky_FlxKIV7C_zhEr_4z2C_8BnV_9GRIK1h2TVip",
                     "language": "en-US",
                     "country": "US",
@@ -197,7 +202,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "sec-fetch-mode": "navigate",
                     "sec-fetch-user": "?1",
                     "sec-fetch-dest": "document",
-                    "referer": "https://mubu.com/login/password",
+                    "referer": "https://${host}/login/password",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
                 }
@@ -209,7 +214,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "Hm_lvt_4426cbb0486a79ea049b4ad52d81b504": "1594282707",
                     "data_unique_id": "c1e5cc1b-2b44-4347-bddb-7a0dd0f7b479",
                     "_gid": "GA1.2.1085584436.1595559677",
-                    "reg_entrance": "https%3A%2F%2Fmubu.com%2Flist",
+                    "reg_entrance": "https%3A%2F%2F${host}%2Flist",
                     "s_v_web_id": "verify_kczo59ky_FlxKIV7C_zhEr_4z2C_8BnV_9GRIK1h2TVip",
                     "language": "en-US",
                     "country": "US",
@@ -237,11 +242,11 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "accept": "application/json, text/javascript, */*; q=0.01",
                     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36",
                     "x-requested-with": "XMLHttpRequest",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-site": "same-origin",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/list",
+                    "referer": "https://${host}/list",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
                 }
@@ -253,7 +258,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "Hm_lvt_4426cbb0486a79ea049b4ad52d81b504": "1594282707",
                     "data_unique_id": "c1e5cc1b-2b44-4347-bddb-7a0dd0f7b479",
                     "_gid": "GA1.2.1085584436.1595559677",
-                    "reg_entrance": "https%3A%2F%2Fmubu.com%2Flist",
+                    "reg_entrance": "https%3A%2F%2F${host}%2Flist",
                     "s_v_web_id": "verify_kczo59ky_FlxKIV7C_zhEr_4z2C_8BnV_9GRIK1h2TVip",
                     "language": "en-US",
                     "country": "US",
@@ -285,11 +290,11 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "x-requested-with": "XMLHttpRequest",
                     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36",
                     "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-site": "same-origin",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/list",
+                    "referer": "https://${host}/list",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
                 }
@@ -301,7 +306,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "Hm_lvt_4426cbb0486a79ea049b4ad52d81b504": "1594282707",
                     "data_unique_id": "c1e5cc1b-2b44-4347-bddb-7a0dd0f7b479",
                     "_gid": "GA1.2.1085584436.1595559677",
-                    "reg_entrance": "https%3A%2F%2Fmubu.com%2Flist",
+                    "reg_entrance": "https%3A%2F%2F${host}%2Flist",
                     "s_v_web_id": "verify_kczo59ky_FlxKIV7C_zhEr_4z2C_8BnV_9GRIK1h2TVip",
                     "language": "en-US",
                     "country": "US",
@@ -332,11 +337,11 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "accept": "application/json, text/javascript, */*; q=0.01",
                     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36",
                     "x-requested-with": "XMLHttpRequest",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-site": "same-origin",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/list",
+                    "referer": "https://${host}/list",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
                 }
@@ -348,7 +353,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "Hm_lvt_4426cbb0486a79ea049b4ad52d81b504": "1594282707",
                     "data_unique_id": "c1e5cc1b-2b44-4347-bddb-7a0dd0f7b479",
                     "_gid": "GA1.2.1085584436.1595559677",
-                    "reg_entrance": "https%3A%2F%2Fmubu.com%2Flist",
+                    "reg_entrance": "https%3A%2F%2F${host}%2Flist",
                     "s_v_web_id": "verify_kczo59ky_FlxKIV7C_zhEr_4z2C_8BnV_9GRIK1h2TVip",
                     "language": "en-US",
                     "country": "US",
@@ -380,11 +385,11 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "x-requested-with": "XMLHttpRequest",
                     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36",
                     "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-site": "same-origin",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/list",
+                    "referer": "https://${host}/list",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
                 }
@@ -396,7 +401,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "Hm_lvt_4426cbb0486a79ea049b4ad52d81b504": "1594282707",
                     "data_unique_id": "c1e5cc1b-2b44-4347-bddb-7a0dd0f7b479",
                     "_gid": "GA1.2.1085584436.1595559677",
-                    "reg_entrance": "https%3A%2F%2Fmubu.com%2Flist",
+                    "reg_entrance": "https%3A%2F%2F${host}%2Flist",
                     "s_v_web_id": "verify_kczo59ky_FlxKIV7C_zhEr_4z2C_8BnV_9GRIK1h2TVip",
                     "language": "en-US",
                     "country": "US",
@@ -432,7 +437,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "sec-fetch-mode": "navigate",
                     "sec-fetch-user": "?1",
                     "sec-fetch-dest": "document",
-                    "referer": "https://mubu.com/list",
+                    "referer": "https://${host}/list",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
                 }
@@ -444,7 +449,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "Hm_lvt_4426cbb0486a79ea049b4ad52d81b504": "1594282707",
                     "data_unique_id": "c1e5cc1b-2b44-4347-bddb-7a0dd0f7b479",
                     "_gid": "GA1.2.1085584436.1595559677",
-                    "reg_entrance": "https%3A%2F%2Fmubu.com%2Flist",
+                    "reg_entrance": "https%3A%2F%2F${host}%2Flist",
                     "s_v_web_id": "verify_kczo59ky_FlxKIV7C_zhEr_4z2C_8BnV_9GRIK1h2TVip",
                     "language": "en-US",
                     "country": "US",
@@ -465,7 +470,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/document/get")
-            .post("https://api2.mubu.com/v3/api/document/get")
+            .post("https://api2.${host}/v3/api/document/get")
             .with_headers(
                 **{
                     "content-length": "23",
@@ -475,11 +480,11 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "data-unique-id": "2e27d230-ce3d-11ea-ad68-83a977aed8cc",
                     "x-request-id": "3c171294-29bb-4bcc-b834-98b2f7551707",
                     "content-type": "application/json;charset=UTF-8",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/doc$docId",
+                    "referer": "https://${host}/doc$docId",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
                 }
@@ -492,7 +497,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/user/current_level")
-            .post("https://api2.mubu.com/v3/api/user/current_level")
+            .post("https://api2.${host}/v3/api/user/current_level")
             .with_headers(
                 **{
                     "content-length": "29",
@@ -502,11 +507,11 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "data-unique-id": "2e27d230-ce3d-11ea-ad68-83a977aed8cc",
                     "x-request-id": "317c2ca0-e0ef-4914-9aef-ad1a34a8d073",
                     "content-type": "application/json;charset=UTF-8",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/doc$docId",
+                    "referer": "https://${host}/doc$docId",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
                 }
@@ -519,7 +524,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/user/current_user")
-            .post("https://api2.mubu.com/v3/api/user/current_user")
+            .post("https://api2.${host}/v3/api/user/current_user")
             .with_headers(
                 **{
                     "content-length": "0",
@@ -528,11 +533,11 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36",
                     "data-unique-id": "2e27d230-ce3d-11ea-ad68-83a977aed8cc",
                     "x-request-id": "030e14d8-25a7-4714-b471-74baf29073d4",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/doc$docId",
+                    "referer": "https://${host}/doc$docId",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
                 }
@@ -545,7 +550,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/user/get_invite_count")
-            .get("https://api2.mubu.com/v3/api/user/get_invite_count")
+            .get("https://api2.${host}/v3/api/user/get_invite_count")
             .with_headers(
                 **{
                     "accept": "application/json, text/plain, */*",
@@ -553,11 +558,11 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36",
                     "data-unique-id": "2e27d230-ce3d-11ea-ad68-83a977aed8cc",
                     "x-request-id": "c7d2b0da-3a9f-4313-ab07-d48a584ab78c",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/doc$docId",
+                    "referer": "https://${host}/doc$docId",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
                 }
@@ -568,7 +573,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/colla/register")
-            .get("https://api2.mubu.com/v3/api/colla/register")
+            .get("https://api2.${host}/v3/api/colla/register")
             .with_headers(
                 **{
                     "accept": "application/json, text/plain, */*",
@@ -576,11 +581,11 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36",
                     "data-unique-id": "2e27d230-ce3d-11ea-ad68-83a977aed8cc",
                     "x-request-id": "d0f3aa47-15ab-4d8c-85bf-c651e99a85a5",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/doc$docId",
+                    "referer": "https://${host}/doc$docId",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
                 }
@@ -592,7 +597,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/user/get_user_params")
-            .post("https://api2.mubu.com/v3/api/user/get_user_params")
+            .post("https://api2.${host}/v3/api/user/get_user_params")
             .with_headers(
                 **{
                     "content-length": "0",
@@ -601,11 +606,11 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36",
                     "data-unique-id": "2e27d230-ce3d-11ea-ad68-83a977aed8cc",
                     "x-request-id": "cab6e13f-e8a0-4439-bdcc-c0047aa56aad",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/doc$docId",
+                    "referer": "https://${host}/doc$docId",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
                 }
@@ -618,20 +623,18 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/colla/members")
-            .options("https://api2.mubu.com/v3/api/colla/members")
-            .with_params(
-                **{"memberId": "2752571224732040", "documentId": "$docId"}
-            )
+            .options("https://api2.${host}/v3/api/colla/members")
+            .with_params(**{"memberId": "2752571224732040", "documentId": "$docId"})
             .with_headers(
                 **{
                     "accept": "*/*",
                     "access-control-request-method": "GET",
                     "access-control-request-headers": "data-unique-id,jwt-token,request-id,x-request-id",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-site": "same-site",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/doc$docId",
+                    "referer": "https://${host}/doc$docId",
                     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
@@ -642,10 +645,8 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/colla/members")
-            .get("https://api2.mubu.com/v3/api/colla/members")
-            .with_params(
-                **{"memberId": "2752571224732040", "documentId": "$docId"}
-            )
+            .get("https://api2.${host}/v3/api/colla/members")
+            .with_params(**{"memberId": "2752571224732040", "documentId": "$docId"})
             .with_headers(
                 **{
                     "accept": "application/json, text/plain, */*",
@@ -654,11 +655,11 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36",
                     "data-unique-id": "2e27d230-ce3d-11ea-ad68-83a977aed8cc",
                     "x-request-id": "366c7201-0990-4719-bc5a-79b35855aa34",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/doc${docId}",
+                    "referer": "https://${host}/doc${docId}",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
                 }
@@ -670,7 +671,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/colla/message")
-            .post("https://api2.mubu.com/v3/api/colla/message")
+            .post("https://api2.${host}/v3/api/colla/message")
             .with_headers(
                 **{
                     "content-length": "513",
@@ -682,11 +683,11 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMTQ0OTE2NCIsImV4cCI6MTU5ODI0OTQ0NCwiaWF0IjoxNTk1NjU3NDQ0fQ.ZoOUyXDJZCeDyTifv2Lb3R0tGkkLOE6-Hj2XFUCLtAl_qk2hc9-ly-Gyvh2PVw0lfxR2Jxj9DMaeRgOnO9akSw",
                     "request-id": "MESSAGE:1449164:2752571224732040:3",
                     "x-request-id": "46c492c2-406e-46f4-9172-6fa1e7ab11c2",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/doc$docId",
+                    "referer": "https://${host}/doc$docId",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
                 }
@@ -734,7 +735,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/colla/message")
-            .post("https://api2.mubu.com/v3/api/colla/message")
+            .post("https://api2.${host}/v3/api/colla/message")
             .with_headers(
                 **{
                     "content-length": "720",
@@ -746,11 +747,11 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMTQ0OTE2NCIsImV4cCI6MTU5ODI0OTQ0NCwiaWF0IjoxNTk1NjU3NDQ0fQ.ZoOUyXDJZCeDyTifv2Lb3R0tGkkLOE6-Hj2XFUCLtAl_qk2hc9-ly-Gyvh2PVw0lfxR2Jxj9DMaeRgOnO9akSw",
                     "request-id": "MESSAGE:1449164:2752571224732040:5",
                     "x-request-id": "fe707a91-9450-4218-9812-f7f620253b45",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/doc$docId",
+                    "referer": "https://${host}/doc$docId",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
                 }
@@ -820,7 +821,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/colla/message")
-            .post("https://api2.mubu.com/v3/api/colla/message")
+            .post("https://api2.${host}/v3/api/colla/message")
             .with_headers(
                 **{
                     "content-length": "720",
@@ -832,11 +833,11 @@ class TestCaseMubuCreateDoc(HttpRunner):
                     "jwt-token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhcHAiOiJtdWJ1Iiwic3ViIjoiMTQ0OTE2NCIsImV4cCI6MTU5ODI0OTQ0NCwiaWF0IjoxNTk1NjU3NDQ0fQ.ZoOUyXDJZCeDyTifv2Lb3R0tGkkLOE6-Hj2XFUCLtAl_qk2hc9-ly-Gyvh2PVw0lfxR2Jxj9DMaeRgOnO9akSw",
                     "request-id": "MESSAGE:1449164:2752571224732040:7",
                     "x-request-id": "84e03397-b068-4fb4-80db-479207257de2",
-                    "origin": "https://mubu.com",
+                    "origin": "https://${host}",
                     "sec-fetch-site": "same-site",
                     "sec-fetch-mode": "cors",
                     "sec-fetch-dest": "empty",
-                    "referer": "https://mubu.com/doc$docId",
+                    "referer": "https://${host}/doc$docId",
                     "accept-encoding": "gzip, deflate, br",
                     "accept-language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
                 }
