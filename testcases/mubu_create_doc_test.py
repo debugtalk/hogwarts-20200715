@@ -11,6 +11,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         Config("testcase description")
         .variables(**{"host": "mubu.com", "memberId": "${gen_memberId()}"})
         .variables(phone="18613143458", password="moFrwx$!kz3RTRm@Q*aV")
+        .variables(title="demo123")
         .verify(False)
         .base_url("https://${host}/")
     )
@@ -709,17 +710,10 @@ class TestCaseMubuCreateDoc(HttpRunner):
                             "documentId": "$docId",
                             "version": 0,
                             "content": [
-                                {"name": "nameChanged", "title": "d", "original": ""},
-                                {"name": "nameChanged", "title": "de", "original": "d"},
                                 {
                                     "name": "nameChanged",
-                                    "title": "dem",
-                                    "original": "de",
-                                },
-                                {
-                                    "name": "nameChanged",
-                                    "title": "demo",
-                                    "original": "dem",
+                                    "title": "$title",
+                                    "original": "",
                                 },
                             ],
                         }
@@ -739,6 +733,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/colla/message")
+            .with_variables(nodeId="${gen_nodeId()}")
             .post("https://api2.${host}/v3/api/colla/message")
             .with_headers(
                 **{
@@ -780,7 +775,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                                             "index": 0,
                                             "parentId": None,
                                             "node": {
-                                                "id": "c460bb2b1046817ffa8438c85bb4b6d4",
+                                                "id": "$nodeId",
                                                 "text": "",
                                                 "modified": 1595657456584,
                                                 "children": [],
@@ -794,12 +789,12 @@ class TestCaseMubuCreateDoc(HttpRunner):
                                     "updated": [
                                         {
                                             "updated": {
-                                                "id": "c460bb2b1046817ffa8438c85bb4b6d4",
+                                                "id": "$nodeId",
                                                 "text": "<span>1</span>",
                                                 "modified": 1595657457042,
                                             },
                                             "original": {
-                                                "id": "c460bb2b1046817ffa8438c85bb4b6d4",
+                                                "id": "$nodeId",
                                                 "text": "",
                                                 "modified": 1595657456584,
                                             },
@@ -825,6 +820,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/v3/api/colla/message")
+            .with_variables(nodeId="${gen_nodeId()}")
             .post("https://api2.${host}/v3/api/colla/message")
             .with_headers(
                 **{
@@ -866,7 +862,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                                             "index": 1,
                                             "parentId": None,
                                             "node": {
-                                                "id": "6e0cb1e317fc98c5627e5bcfdced49e8",
+                                                "id": "$nodeId",
                                                 "text": "",
                                                 "modified": 1595657457470,
                                                 "children": [],
@@ -880,12 +876,12 @@ class TestCaseMubuCreateDoc(HttpRunner):
                                     "updated": [
                                         {
                                             "updated": {
-                                                "id": "6e0cb1e317fc98c5627e5bcfdced49e8",
+                                                "id": "$nodeId",
                                                 "text": "<span>2</span>",
                                                 "modified": 1595657457660,
                                             },
                                             "original": {
-                                                "id": "6e0cb1e317fc98c5627e5bcfdced49e8",
+                                                "id": "$nodeId",
                                                 "text": "",
                                                 "modified": 1595657457470,
                                             },
