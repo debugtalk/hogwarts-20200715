@@ -13,6 +13,7 @@ class TestCaseMubuLogin(HttpRunner):
         .variables(phone="18613143458", password="moFrwx$!kz3RTRm@Q*aV")
         .verify(False)
         .base_url("https://${host}/")
+        .export(*["unreadCount"])
     )
 
     teststeps = [
@@ -372,6 +373,8 @@ class TestCaseMubuLogin(HttpRunner):
                 }
             )
             .with_data("")
+            .extract()
+            .with_jmespath("body.data.unreadCount", "unreadCount")
             .validate()
             .assert_equal("status_code", 200)
             .assert_equal("body.code", 0)

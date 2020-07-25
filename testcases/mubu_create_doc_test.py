@@ -20,7 +20,10 @@ class TestCaseMubuCreateDoc(HttpRunner):
 
     teststeps = [
         Step(
-            RunTestCase("login mubu").call(MubuLogin)
+            RunTestCase("login mubu")
+            .with_variables(phone="18613143458", password="moFrwx$!kz3RTRm@Q*aV")
+            .call(MubuLogin)
+            .export(*["unreadCount"])
         ),
         Step(
             RunRequest("/api/list/create_doc")
@@ -28,6 +31,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
             .with_headers(
                 **{
                     "content-length": "17",
+                    "unreadCount": "'$unreadCount'",
                     "accept": "application/json, text/javascript, */*; q=0.01",
                     "x-requested-with": "XMLHttpRequest",
                     "user-agent": "HttpRunner/${get_httprunner_version()}",
