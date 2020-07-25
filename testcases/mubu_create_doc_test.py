@@ -7,12 +7,12 @@ from httprunner import HttpRunner, Config, Step, RunRequest, RunTestCase
 
 class TestCaseMubuCreateDoc(HttpRunner):
 
-    config = Config("testcase description").verify(False)
+    config = Config("testcase description").verify(False).base_url("https://mubu.com/")
 
     teststeps = [
         Step(
             RunRequest("/")
-            .get("https://mubu.com/")
+            .get("/")
             .with_headers(
                 **{
                     "cache-control": "max-age=0",
@@ -53,7 +53,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/login")
-            .get("https://mubu.com/login")
+            .get("/login")
             .with_headers(
                 **{
                     "upgrade-insecure-requests": "1",
@@ -94,7 +94,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/login/password")
-            .get("https://mubu.com/login/password")
+            .get("/login/password")
             .with_headers(
                 **{
                     "upgrade-insecure-requests": "1",
@@ -135,7 +135,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/api/login/submit")
-            .post("https://mubu.com/api/login/submit")
+            .post("/api/login/submit")
             .with_headers(
                 **{
                     "content-length": "65",
@@ -187,7 +187,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/list")
-            .get("https://mubu.com/list")
+            .get("/list")
             .with_headers(
                 **{
                     "upgrade-insecure-requests": "1",
@@ -230,7 +230,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/api/list/tip_new_update")
-            .post("https://mubu.com/api/list/tip_new_update")
+            .post("/api/list/tip_new_update")
             .with_headers(
                 **{
                     "content-length": "0",
@@ -277,7 +277,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/api/list/get")
-            .post("https://mubu.com/api/list/get")
+            .post("/api/list/get")
             .with_headers(
                 **{
                     "content-length": "38",
@@ -325,7 +325,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/api/message/get_message_unread")
-            .post("https://mubu.com/api/message/get_message_unread")
+            .post("/api/message/get_message_unread")
             .with_headers(
                 **{
                     "content-length": "0",
@@ -372,7 +372,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/api/list/create_doc")
-            .post("https://mubu.com/api/list/create_doc")
+            .post("/api/list/create_doc")
             .with_headers(
                 **{
                     "content-length": "17",
@@ -422,7 +422,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
         ),
         Step(
             RunRequest("/doc$docId")
-            .get("https://mubu.com/doc$docId")
+            .get("/doc$docId")
             .with_headers(
                 **{
                     "upgrade-insecure-requests": "1",
