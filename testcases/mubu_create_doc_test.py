@@ -777,7 +777,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                                             "node": {
                                                 "id": "$nodeId",
                                                 "text": "",
-                                                "modified": 1595657456584,
+                                                "modified": "${get_timestamp()}",
                                                 "children": [],
                                             },
                                             "path": ["nodes", 0],
@@ -791,12 +791,12 @@ class TestCaseMubuCreateDoc(HttpRunner):
                                             "updated": {
                                                 "id": "$nodeId",
                                                 "text": "<span>1</span>",
-                                                "modified": 1595657457042,
+                                                "modified": "${get_timestamp()}",
                                             },
                                             "original": {
                                                 "id": "$nodeId",
                                                 "text": "",
-                                                "modified": 1595657456584,
+                                                "modified": "${get_timestamp()}",
                                             },
                                             "path": ["nodes", 0],
                                         }
@@ -864,7 +864,7 @@ class TestCaseMubuCreateDoc(HttpRunner):
                                             "node": {
                                                 "id": "$nodeId",
                                                 "text": "",
-                                                "modified": 1595657457470,
+                                                "modified": "${get_timestamp()}",
                                                 "children": [],
                                             },
                                             "path": ["nodes", 1],
@@ -878,12 +878,12 @@ class TestCaseMubuCreateDoc(HttpRunner):
                                             "updated": {
                                                 "id": "$nodeId",
                                                 "text": "<span>2</span>",
-                                                "modified": 1595657457660,
+                                                "modified": "${get_timestamp()}",
                                             },
                                             "original": {
                                                 "id": "$nodeId",
                                                 "text": "",
-                                                "modified": 1595657457470,
+                                                "modified": "${get_timestamp()}",
                                             },
                                             "path": ["nodes", 1],
                                         }
